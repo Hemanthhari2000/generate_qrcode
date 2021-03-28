@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}    
+    <br>
+    <div class="title container text-center">
+        <h1>Code and Decode Your <a href="{{url_for('home')}}">QR</a></h1>
+        <br>
+    </div>
+    
+    <div class="container text-center border border-secondary p-5">
+        <a href="{{url_for('generate')}}" class="btn btn-outline-success">Generate</a>
+        <a href="{{url_for('decode') }}" class="btn btn-outline-dark">Decode</a>
+        <br><br>
+
+        {% if encoded %}
+            <div class="encoded_img">
+                <img src="{{url_for('output_image')}}" alt="encoded image" height="300px" width="300px" style="object-fit: cover;">
+                <br><br><br>
+                <a href="{{ url_for('download_files') }}" class="btn btn-success">Download</a>
+            </div>
+        {% endif %}
+        {% if decoded %}
+            <div class="decoded-img">
+                <br><br>
+                <h3><b>Your Decoded QR Message</b> 🕵🏻</h3><br>
+                <code style="background-color:#F6F6F6;font-family:monospace;padding: 20px;font-size: 16px;">{{ data }}</code>
+            </div>
+        {% endif %}
+    </div>
+    
+{% endblock %}

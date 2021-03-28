@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<div class="container text-center">
+        <h1>Decode Your Image</h1>
+        <br>
+    </div>
+    <div class="container d-flex justify-content-center align-items-center border border-secondary rounded-3 p-5">
+        <form action="{{url_for('decode')}}" method="post" enctype="multipart/form-data">
+            <input class = 'form-control' type="file" name="decodeImage" id="decodeImage" required>
+            <br><br>
+            <input class = 'btn btn-outline-secondary' type="submit" value="Decode">
+        </form>
+        <br><br>
+    </div>
+{% endblock %}
